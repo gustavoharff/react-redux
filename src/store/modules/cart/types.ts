@@ -11,4 +11,5 @@ export type Item = {
 
 export interface CartState {
   items: Item[]
+  failedStockCheck: number[]
 }

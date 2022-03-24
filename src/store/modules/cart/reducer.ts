@@ -4,13 +4,14 @@ import produce from 'immer'
 import { CartState } from './types'
 
 const INITIAL_STATE: CartState = {
-  items: []
+  items: [],
+  failedStockCheck: []
 }
 
 const cart: Reducer<CartState> = (state = INITIAL_STATE, action) => {
   return produce(state, draft => {
     switch (action.type) {
-      case '@cart/ADD': {
+      case '@cart/ADD_SUCCESS': {
         const { product } = action.payload
 
         const productIndex = draft.items.findIndex(
@@ -27,6 +28,11 @@ const cart: Reducer<CartState> = (state = INITIAL_STATE, action) => {
         }
 
         break
+      }
+      case '@cart/ADD_FAILURE': {
+        draft.failedStockCheck.push(action.payload.productId)
+
+        break;
       }
       default: {
         return draft
