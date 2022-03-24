@@ -4,11 +4,11 @@ export type Product = {
   price: number
 }
 
-type Item = {
+export type Item = {
   product: Product
   quantity: number
 }
 
-export interface ICartState {
+export interface CartState {
   items: Item[]
 }
