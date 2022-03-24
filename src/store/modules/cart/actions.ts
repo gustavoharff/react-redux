@@ -1,8 +1,8 @@
-import type { Product } from './types'
+import { CartTypes, Product } from './types'
 
 export function addProductToCartRequest(product: Product) {
   return {
-    type: '@cart/ADD_REQUEST',
+    type: CartTypes.ADD_REQUEST,
     payload: {
       product
     }
@@ -11,7 +11,7 @@ export function addProductToCartRequest(product: Product) {
 
 export function addProductToCartSuccess(product: Product) {
   return {
-    type: '@cart/ADD_SUCCESS',
+    type: CartTypes.ADD_SUCCESS,
     payload: {
       product
     }
@@ -20,7 +20,7 @@ export function addProductToCartSuccess(product: Product) {
 
 export function addProductToCartFailure(productId: number) {
   return {
-    type: '@cart/ADD_FAILURE',
+    type: CartTypes.ADD_FAILURE,
     payload: {
       productId
     }

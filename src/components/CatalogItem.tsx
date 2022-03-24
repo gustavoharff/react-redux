@@ -27,8 +27,9 @@ export function CatalogItem({ product }: CatalogItemProps) {
       <button type="button" onClick={handleAddProductToCart}>
         Comprar
       </button>
-
-      {hasFailedStockCheck && <span style={{ color: 'red'}}>Falta de estoque</span>}
+      {hasFailedStockCheck && (
+        <span style={{ color: 'red' }}>Falta de estoque</span>
+      )}
     </article>
   )
 }
