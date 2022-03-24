@@ -13,6 +13,7 @@ export function Cart() {
           <th>Produto</th>
           <th>Preço</th>
           <th>Quantidade</th>
+          <th>Subtotal</th>
         </tr>
       </thead>
       <tbody>
@@ -20,6 +21,7 @@ export function Cart() {
           <tr key={item.product.id}>
             <td>{item.product.title}</td>
             <td>{item.product.price}</td>
+            <td>{item.quantity}</td>
             <td>{(item.product.price * item.quantity).toFixed(2)}</td>
           </tr>
         ))}
