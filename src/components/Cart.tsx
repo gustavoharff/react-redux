@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 
 import { State } from '../store'
 import { Item } from '../store/modules/cart/types'
+import { CartItem } from './CartItem'
 
 export function Cart() {
   const items = useSelector<State, Item[]>(state => state.cart.items)
@@ -18,12 +19,7 @@ export function Cart() {
       </thead>
       <tbody>
         {items.map(item => (
-          <tr key={item.product.id}>
-            <td>{item.product.title}</td>
-            <td>{item.product.price}</td>
-            <td>{item.quantity}</td>
-            <td>{(item.product.price * item.quantity).toFixed(2)}</td>
-          </tr>
+          <CartItem key={item.product.id} item={item} />
         ))}
       </tbody>
     </table>

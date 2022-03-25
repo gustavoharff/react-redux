@@ -30,9 +30,38 @@ const cart: Reducer<CartState> = (state = INITIAL_STATE, action) => {
         break
       }
       case CartTypes.ADD_FAILURE: {
-        draft.failedStockCheck.push(action.payload.productId)
+        const { productId } = action.payload
+
+        const failedStockCheckProductIdIndex = draft.failedStockCheck.findIndex(
+          id => id === productId
+        )
+
+        if (failedStockCheckProductIdIndex < 0) {
+          draft.failedStockCheck.push(action.payload.productId)
+        }
 
         break
+      }
+      case CartTypes.REMOVE_SUCCESS: {
+        const { productId } = action.payload
+
+        const productIndex = draft.items.findIndex(
+          item => item.product.id === productId
+        )
+
+        if (draft.items[productIndex].quantity > 1) {
+          draft.items[productIndex].quantity -= 1
+        } else {
+          draft.items.splice(productIndex, 1)
+        }
+
+        const failedStockCheckProductIdIndex = draft.failedStockCheck.findIndex(
+          id => id === productId
+        )
+
+        if (failedStockCheckProductIdIndex >= 0) {
+          draft.failedStockCheck.splice(failedStockCheckProductIdIndex, 1)
+        }
       }
       default: {
         return draft

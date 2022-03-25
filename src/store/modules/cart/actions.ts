@@ -26,3 +26,12 @@ export function addProductToCartFailure(productId: number) {
     }
   }
 }
+
+export function decrementProductQuantityToCart(productId: number) {
+  return {
+    type: CartTypes.REMOVE_SUCCESS,
+    payload: {
+      productId
+    }
+  }
+}
