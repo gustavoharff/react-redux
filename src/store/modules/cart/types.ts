@@ -2,7 +2,7 @@ export enum CartTypes {
   ADD_REQUEST = '@cart/ADD_REQUEST',
   ADD_SUCCESS = '@cart/ADD_SUCCESS',
   ADD_FAILURE = '@cart/ADD_FAILURE',
-  REMOVE_SUCCESS = '@cart/REMOVE_SUCCESS',
+  REMOVE_SUCCESS = '@cart/REMOVE_SUCCESS'
 }
 
 export type Product = {

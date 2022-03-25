@@ -1,4 +1,16 @@
 {
+  "users": [
+    {
+      "name": "John Doe",
+      "email": "johndoe@email.com",
+      "password": "johndoe"
+    },
+    {
+      "name": "Jane Doe",
+      "email": "janedoe@email.com",
+      "password": "janedoe"
+    }
+  ],
   "products": [
     {
       "id": 1,
