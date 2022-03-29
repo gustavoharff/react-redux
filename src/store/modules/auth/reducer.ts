@@ -1,5 +1,5 @@
 import { Reducer } from 'redux'
-import { AuthState, AuthTypes } from './types'
+import { AuthAction, AuthState, AuthTypes } from './types'
 
 const user = localStorage.getItem('user')
 
@@ -7,7 +7,10 @@ const INITIAL_STATE: AuthState = {
   user: user ? JSON.parse(user) : null
 }
 
-const auth: Reducer<AuthState> = (state = INITIAL_STATE, action) => {
+const auth: Reducer<AuthState, AuthAction> = (
+  state = INITIAL_STATE,
+  action
+) => {
   switch (action.type) {
     case AuthTypes.SIGN_IN_SUCCESS: {
       localStorage.setItem('user', JSON.stringify(action.payload.user))

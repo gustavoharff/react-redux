@@ -1,6 +1,6 @@
 import { AuthTypes, User } from './types'
 
-type SignInRequest = {
+export type SignInRequest = {
   email: string
   password: string
 }

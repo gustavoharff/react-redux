@@ -1,14 +1,17 @@
 import { Reducer } from 'redux'
 import produce from 'immer'
 
-import { CartState, CartTypes } from './types'
+import { CartAction, CartState, CartTypes } from './types'
 
 const INITIAL_STATE: CartState = {
   items: [],
   failedStockCheck: []
 }
 
-const cart: Reducer<CartState> = (state = INITIAL_STATE, action) => {
+const cart: Reducer<CartState, CartAction> = (
+  state = INITIAL_STATE,
+  action
+) => {
   return produce(state, draft => {
     switch (action.type) {
       case CartTypes.ADD_SUCCESS: {

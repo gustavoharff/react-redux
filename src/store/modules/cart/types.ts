@@ -20,3 +20,29 @@ export interface CartState {
   items: Item[]
   failedStockCheck: number[]
 }
+
+export type AddProductToCartSuccessAction = {
+  type: CartTypes.ADD_SUCCESS
+  payload: {
+    product: Product
+  }
+}
+
+export type AddProductToCartFailureAction = {
+  type: CartTypes.ADD_FAILURE
+  payload: {
+    productId: number
+  }
+}
+
+export type DecrementProductQuantityToCartAction = {
+  type: CartTypes.REMOVE_SUCCESS
+  payload: {
+    productId: number
+  }
+}
+
+export type CartAction =
+  | AddProductToCartSuccessAction
+  | AddProductToCartFailureAction
+  | DecrementProductQuantityToCartAction

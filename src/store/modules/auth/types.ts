@@ -13,3 +13,17 @@ export type User = {
 export type AuthState = {
   user: User | null
 }
+
+export interface SignInSucessAction {
+  type: AuthTypes.SIGN_IN_SUCCESS
+  payload: {
+    user: User
+  }
+}
+
+export interface SignInFailureAction {
+  type: AuthTypes.SIGN_IN_FAILURE
+  payload: undefined
+}
+
+export type AuthAction = SignInSucessAction | SignInFailureAction
